@@ -166,14 +166,7 @@ namespace GetBPR
         /// It takes three parameters: 'personAge', 'noRequired', and 'riskType', representing age, quantity, 
         /// and risk type respectively. The method calls the 'CreateReadings' method with the given parameters 
         /// to generate a list of blood pressure readings based on specific age, risk type, and count 
-        /// requirements. The generated readings are then stored in the 'readings' variable.
-        /// Next, the method creates a 'Status' object with a status code of 200 (indicating "OK") and a 
-        /// status message of "OK". The 'StatusErrors' property is set to null since there are no errors in 
-        /// the "OK" response.
-        /// Finally, the method assembles and returns a 'Response' object containing the 'Status' with the 
-        /// "OK" status code and the 'readings' list as the data payload. This "OK" response can be utilized 
-        /// to communicate the successful retrieval of the blood pressure readings to the caller or consumer 
-        /// of the method.
+        /// requirements. Finally, it returns a 'Response' object with the 'Status' and 'Data' properties set.
         /// </summary>
         /// <param name="personAge"></param>
         /// <param name="noRequired"></param>
@@ -183,18 +176,8 @@ namespace GetBPR
         {
             List<BPR> readings = CreateReadings(personAge, noRequired, riskType);
 
-            Status status = new Status()
-            {
-                StatusCode = 200,
-                StatusMessage = "OK",
-                StatusErrors = null
-            };
+            return GenerateResponse(200, "Ok", null, readings);
 
-            return new Response()
-            {
-                Status = status,
-                Data = readings
-            };
         }
 
         /// <summary>
@@ -244,7 +227,7 @@ namespace GetBPR
         /// <param name="errors"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        private Response GenerateResponse(ushort statusCode, string statusMessage, List<string> errors, List<BPR> data = null)
+        private Response GenerateResponse(ushort statusCode, string statusMessage, List<string> errors = null, List<BPR> data = null)
         {
             Status status = new Status
             {
