@@ -20,7 +20,7 @@ Age and qty should be easy to fathom out. Risk can be one of the following:
 
 The numbers are what are used for the risk parameter.
 
-e.g. `api/GetBPR?age=90&qty=30&risk=2` will return 30 readings for a 90 year old with elevated risk.
+e.g. `api/GetBPR?age=90&quantity=30&risk=2` will return 30 readings for a 90 year old with elevated risk.
 
 
 ## Success
