@@ -10,7 +10,7 @@ the readings should be good enough to get some data to play with.
 
 ## Using the API
 
-Call with `GET` to `api/GetBPR?age={AGE}&qty={QTY}&risk={RISK}` to get a list of readings.
+Call with `GET` to `api/GetBPR?age={AGE}&quantity={QTY}&risk={RISK}` to get a list of readings.
 
 Age and qty should be easy to fathom out. Risk can be one of the following:
 
